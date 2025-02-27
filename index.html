@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Calculadora de Costos con IndexedDB</title>
+  <!-- Enlaza el nuevo archivo CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,35 +15,55 @@
     </p>
   </header>
 
-  <!-- SECCIÓN 1: Gastos Fijos -->
+  <!-- SECCIÓN 1: Gastos Fijos (Parte 1) -->
   <section>
     <h2>Gastos Fijos (Parte 1)</h2>
-    <div class="form-group">
-      <label for="nombre1">Nombre del objeto:</label>
-      <input id="nombre1" type="text" placeholder="Ej: Pieza A" />
-    </div>
-    <div class="form-group">
-      <label for="foto1">Foto del objeto:</label>
-      <input id="foto1" type="file" accept="image/*" />
-    </div>
-    <div class="form-group">
-      <label for="precioKg1">Precio KG:</label>
-      <input id="precioKg1" type="number" placeholder="Ej: 17000" />
-    </div>
-    <div class="form-group">
-      <label for="precioKwh1">Precio Kwh:</label>
-      <input id="precioKwh1" type="number" placeholder="Ej: 300" />
-    </div>
-    <div class="form-group">
-      <label for="consumoHora1">Consumo real por hora (W):</label>
-      <input id="consumoHora1" type="number" placeholder="Ej: 300" />
-    </div>
-    <div class="form-group">
-      <label for="desgasteHoras1">Desgaste de la Máquina en horas:</label>
-      <input id="desgasteHoras1" type="number" placeholder="Ej: 4320" />
-    </div>
-    <button onclick="calcularSeccion1()">Calcular</button>
+    <!-- Contenedor general del formulario -->
+    <div class="form-container">
+      <!-- Fila 1 -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="nombre1">Nombre del objeto:</label>
+          <input id="nombre1" type="text" placeholder="Ej: Pieza A" />
+        </div>
+        <div class="form-col">
+          <label for="foto1">Foto del objeto:</label>
+          <input id="foto1" type="file" accept="image/*" />
+        </div>
+      </div>
 
+      <!-- Fila 2 -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="precioKg1">Precio KG:</label>
+          <input id="precioKg1" type="number" placeholder="Ej: 17000" />
+        </div>
+        <div class="form-col">
+          <label for="precioKwh1">Precio Kwh:</label>
+          <input id="precioKwh1" type="number" placeholder="Ej: 300" />
+        </div>
+      </div>
+
+      <!-- Fila 3 -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="consumoHora1">Consumo real por hora (W):</label>
+          <input id="consumoHora1" type="number" placeholder="Ej: 300" />
+        </div>
+        <div class="form-col">
+          <label for="desgasteHoras1">Desgaste de la Máquina en horas:</label>
+          <input id="desgasteHoras1" type="number" placeholder="Ej: 4320" />
+        </div>
+      </div>
+
+      <!-- Fila de botones -->
+      <div class="form-row form-row-buttons">
+        <button onclick="calcularSeccion1()">Calcular</button>
+        <button onclick="guardarRegistro1()">Guardar Registro</button>
+      </div>
+    </div>
+
+    <!-- Resultados -->
     <div class="results">
       <h3>RESULTADOS</h3>
       <p>Precio Material: <span id="precioMaterial1">-</span></p>
@@ -50,41 +71,58 @@
       <p>Desgaste de la Máquina: <span id="desgasteMaquina1">-</span></p>
       <p>Margen de Error: <span id="margenError1">-</span></p>
     </div>
-
-    <button onclick="guardarRegistro1()">Guardar Registro</button>
   </section>
 
   <hr />
 
-  <!-- SECCIÓN 2: PARTES 2 -->
+  <!-- SECCIÓN 2: PARTES 2 (Otra pieza/escenario) -->
   <section>
     <h2>PARTES 2 (Otra pieza/escenario)</h2>
-    <div class="form-group">
-      <label for="nombre2">Nombre del objeto:</label>
-      <input id="nombre2" type="text" placeholder="Ej: Pieza B" />
-    </div>
-    <div class="form-group">
-      <label for="foto2">Foto del objeto:</label>
-      <input id="foto2" type="file" accept="image/*" />
-    </div>
-    <div class="form-group">
-      <label for="precioKg2">Precio KG:</label>
-      <input id="precioKg2" type="number" placeholder="Ej: 15000" />
-    </div>
-    <div class="form-group">
-      <label for="precioKwh2">Precio Kwh:</label>
-      <input id="precioKwh2" type="number" placeholder="Ej: 300" />
-    </div>
-    <div class="form-group">
-      <label for="consumoHora2">Consumo real por hora (W):</label>
-      <input id="consumoHora2" type="number" placeholder="Ej: 250" />
-    </div>
-    <div class="form-group">
-      <label for="desgasteHoras2">Desgaste de la Máquina en horas:</label>
-      <input id="desgasteHoras2" type="number" placeholder="Ej: 4320" />
-    </div>
-    <button onclick="calcularSeccion2()">Calcular</button>
+    <div class="form-container">
+      <!-- Fila 1 -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="nombre2">Nombre del objeto:</label>
+          <input id="nombre2" type="text" placeholder="Ej: Pieza B" />
+        </div>
+        <div class="form-col">
+          <label for="foto2">Foto del objeto:</label>
+          <input id="foto2" type="file" accept="image/*" />
+        </div>
+      </div>
 
+      <!-- Fila 2 -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="precioKg2">Precio KG:</label>
+          <input id="precioKg2" type="number" placeholder="Ej: 15000" />
+        </div>
+        <div class="form-col">
+          <label for="precioKwh2">Precio Kwh:</label>
+          <input id="precioKwh2" type="number" placeholder="Ej: 300" />
+        </div>
+      </div>
+
+      <!-- Fila 3 -->
+      <div class="form-row">
+        <div class="form-col">
+          <label for="consumoHora2">Consumo real por hora (W):</label>
+          <input id="consumoHora2" type="number" placeholder="Ej: 250" />
+        </div>
+        <div class="form-col">
+          <label for="desgasteHoras2">Desgaste de la Máquina en horas:</label>
+          <input id="desgasteHoras2" type="number" placeholder="Ej: 4320" />
+        </div>
+      </div>
+
+      <!-- Fila de botones -->
+      <div class="form-row form-row-buttons">
+        <button onclick="calcularSeccion2()">Calcular</button>
+        <button onclick="guardarRegistro2()">Guardar Registro</button>
+      </div>
+    </div>
+
+    <!-- Resultados -->
     <div class="results">
       <h3>RESULTADOS PARTES 2</h3>
       <p>Precio Material: <span id="precioMaterial2">-</span></p>
@@ -92,8 +130,6 @@
       <p>Desgaste de la Máquina: <span id="desgasteMaquina2">-</span></p>
       <p>Margen de Error: <span id="margenError2">-</span></p>
     </div>
-
-    <button onclick="guardarRegistro2()">Guardar Registro</button>
   </section>
 
   <hr />
@@ -121,269 +157,7 @@
     </table>
   </section>
 
-  <script>
-    /************************************************
-     *  1. Inicializar IndexedDB
-     ***********************************************/
-    let db;
-    const DB_NAME = 'CostCalculatorDB';
-    const DB_VERSION = 1; // Versión de la base de datos
-    const STORE_NAME = 'registros';
-
-    // Al cargar la página, abrimos la base de datos
-    window.onload = function() {
-      const request = indexedDB.open(DB_NAME, DB_VERSION);
-
-      request.onerror = function(event) {
-        console.error('Error abriendo IndexedDB:', event);
-      };
-
-      request.onsuccess = function(event) {
-        db = event.target.result;
-        // Cargar todos los registros y mostrarlos en la tabla
-        leerRegistros();
-      };
-
-      // Se ejecuta si no existe la BD o si incrementamos la versión
-      request.onupgradeneeded = function(event) {
-        db = event.target.result;
-        if (!db.objectStoreNames.contains(STORE_NAME)) {
-          // Creamos el Object Store con clave autoincremental
-          const objectStore = db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
-        }
-      };
-    };
-
-    /************************************************
-     *  2. Funciones para SECCIÓN 1
-     ***********************************************/
-    function calcularSeccion1() {
-      const precioKg = parseFloat(document.getElementById('precioKg1').value) || 0;
-      const precioKwh = parseFloat(document.getElementById('precioKwh1').value) || 0;
-      const consumoHora = parseFloat(document.getElementById('consumoHora1').value) || 0;
-      const desgasteHoras = parseFloat(document.getElementById('desgasteHoras1').value) || 0;
-
-      // Ejemplo de cálculo (adáptalo a tu Excel)
-      const precioMaterial = precioKg * 0.13;
-      const precioLuz = (precioKwh * (consumoHora / 1000));
-      const desgasteMaquina = desgasteHoras / 4440;
-      const margenError = (precioMaterial + precioLuz + desgasteMaquina) * 0.2;
-
-      document.getElementById('precioMaterial1').textContent = precioMaterial.toFixed(2);
-      document.getElementById('precioLuz1').textContent = precioLuz.toFixed(2);
-      document.getElementById('desgasteMaquina1').textContent = desgasteMaquina.toFixed(2);
-      document.getElementById('margenError1').textContent = margenError.toFixed(2);
-    }
-
-    function guardarRegistro1() {
-      const nombre = document.getElementById('nombre1').value.trim();
-      const fotoFile = document.getElementById('foto1').files[0];
-      const fecha = new Date().toLocaleString();
-
-      // Resultados actuales en pantalla
-      const precioMaterial = document.getElementById('precioMaterial1').textContent;
-      const precioLuz = document.getElementById('precioLuz1').textContent;
-      const desgaste = document.getElementById('desgasteMaquina1').textContent;
-      const margenError = document.getElementById('margenError1').textContent;
-
-      if (!db) {
-        console.error('IndexedDB no inicializada');
-        return;
-      }
-
-      // Convertir imagen a Data URL (base64) para almacenarla en IndexedDB
-      if (fotoFile) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const fotoURL = e.target.result;
-          guardarEnIndexedDB(nombre, fotoURL, fecha, precioMaterial, precioLuz, desgaste, margenError);
-        };
-        reader.readAsDataURL(fotoFile);
-      } else {
-        // Sin foto
-        guardarEnIndexedDB(nombre, '', fecha, precioMaterial, precioLuz, desgaste, margenError);
-      }
-    }
-
-    /************************************************
-     *  3. Funciones para SECCIÓN 2
-     ***********************************************/
-    function calcularSeccion2() {
-      const precioKg = parseFloat(document.getElementById('precioKg2').value) || 0;
-      const precioKwh = parseFloat(document.getElementById('precioKwh2').value) || 0;
-      const consumoHora = parseFloat(document.getElementById('consumoHora2').value) || 0;
-      const desgasteHoras = parseFloat(document.getElementById('desgasteHoras2').value) || 0;
-
-      const precioMaterial = precioKg * 0.13;
-      const precioLuz = (precioKwh * (consumoHora / 1000));
-      const desgasteMaquina = desgasteHoras / 4440;
-      const margenError = (precioMaterial + precioLuz + desgasteMaquina) * 0.2;
-
-      document.getElementById('precioMaterial2').textContent = precioMaterial.toFixed(2);
-      document.getElementById('precioLuz2').textContent = precioLuz.toFixed(2);
-      document.getElementById('desgasteMaquina2').textContent = desgasteMaquina.toFixed(2);
-      document.getElementById('margenError2').textContent = margenError.toFixed(2);
-    }
-
-    function guardarRegistro2() {
-      const nombre = document.getElementById('nombre2').value.trim();
-      const fotoFile = document.getElementById('foto2').files[0];
-      const fecha = new Date().toLocaleString();
-
-      const precioMaterial = document.getElementById('precioMaterial2').textContent;
-      const precioLuz = document.getElementById('precioLuz2').textContent;
-      const desgaste = document.getElementById('desgasteMaquina2').textContent;
-      const margenError = document.getElementById('margenError2').textContent;
-
-      if (!db) {
-        console.error('IndexedDB no inicializada');
-        return;
-      }
-
-      if (fotoFile) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const fotoURL = e.target.result;
-          guardarEnIndexedDB(nombre, fotoURL, fecha, precioMaterial, precioLuz, desgaste, margenError);
-        };
-        reader.readAsDataURL(fotoFile);
-      } else {
-        guardarEnIndexedDB(nombre, '', fecha, precioMaterial, precioLuz, desgaste, margenError);
-      }
-    }
-
-    /************************************************
-     *  4. Guardar en IndexedDB
-     ***********************************************/
-    function guardarEnIndexedDB(nombre, fotoURL, fecha, precioMaterial, precioLuz, desgaste, margenError) {
-      const transaction = db.transaction([STORE_NAME], 'readwrite');
-      const store = transaction.objectStore(STORE_NAME);
-
-      const registro = {
-        nombre,
-        fotoURL,
-        fecha,
-        precioMaterial,
-        precioLuz,
-        desgaste,
-        margenError
-      };
-
-      const request = store.add(registro);
-
-      request.onsuccess = function() {
-        console.log('Registro guardado en IndexedDB');
-        leerRegistros(); // Volver a cargar y mostrar la tabla
-      };
-
-      request.onerror = function(event) {
-        console.error('Error al guardar en IndexedDB:', event);
-      };
-    }
-
-    /************************************************
-     *  5. Leer y mostrar registros
-     ***********************************************/
-    function leerRegistros() {
-      const transaction = db.transaction([STORE_NAME], 'readonly');
-      const store = transaction.objectStore(STORE_NAME);
-      const request = store.openCursor();
-
-      const tbody = document.getElementById('tablaRegistros').querySelector('tbody');
-      tbody.innerHTML = '';
-
-      request.onsuccess = function(event) {
-        const cursor = event.target.result;
-        if (cursor) {
-          const reg = cursor.value;
-          // Crear fila en la tabla
-          const row = document.createElement('tr');
-
-          // ID (clave autoincremental)
-          const tdId = document.createElement('td');
-          tdId.textContent = reg.id;
-          row.appendChild(tdId);
-
-          // Nombre
-          const tdNombre = document.createElement('td');
-          tdNombre.textContent = reg.nombre || '-';
-          row.appendChild(tdNombre);
-
-          // Foto
-          const tdFoto = document.createElement('td');
-          if (reg.fotoURL) {
-            const img = document.createElement('img');
-            img.src = reg.fotoURL;
-            img.alt = reg.nombre;
-            img.style.width = '80px';
-            img.style.height = '80px';
-            img.style.objectFit = 'cover';
-            tdFoto.appendChild(img);
-          } else {
-            tdFoto.textContent = '-';
-          }
-          row.appendChild(tdFoto);
-
-          // Fecha
-          const tdFecha = document.createElement('td');
-          tdFecha.textContent = reg.fecha;
-          row.appendChild(tdFecha);
-
-          // Precio Material
-          const tdPrecioMaterial = document.createElement('td');
-          tdPrecioMaterial.textContent = reg.precioMaterial;
-          row.appendChild(tdPrecioMaterial);
-
-          // Precio Luz
-          const tdPrecioLuz = document.createElement('td');
-          tdPrecioLuz.textContent = reg.precioLuz;
-          row.appendChild(tdPrecioLuz);
-
-          // Desgaste
-          const tdDesgaste = document.createElement('td');
-          tdDesgaste.textContent = reg.desgaste;
-          row.appendChild(tdDesgaste);
-
-          // Margen Error
-          const tdMargenError = document.createElement('td');
-          tdMargenError.textContent = reg.margenError;
-          row.appendChild(tdMargenError);
-
-          // Acciones (borrar, por ejemplo)
-          const tdAcciones = document.createElement('td');
-          const btnBorrar = document.createElement('button');
-          btnBorrar.textContent = 'Borrar';
-          btnBorrar.onclick = function() {
-            borrarRegistro(reg.id);
-          };
-          tdAcciones.appendChild(btnBorrar);
-          row.appendChild(tdAcciones);
-
-          tbody.appendChild(row);
-
-          cursor.continue();
-        }
-      };
-    }
-
-    /************************************************
-     *  6. Borrar un registro
-     ***********************************************/
-    function borrarRegistro(id) {
-      const transaction = db.transaction([STORE_NAME], 'readwrite');
-      const store = transaction.objectStore(STORE_NAME);
-      const request = store.delete(id);
-
-      request.onsuccess = function() {
-        console.log('Registro borrado con ID:', id);
-        leerRegistros();
-      };
-
-      request.onerror = function(event) {
-        console.error('Error al borrar registro:', event);
-      };
-    }
-  </script>
+  <!-- Script con IndexedDB y funciones de cálculo (igual que antes) -->
+  <script src="app.js"></script>
 </body>
 </html>
-
